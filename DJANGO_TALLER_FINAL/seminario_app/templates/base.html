@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- ICONS CSS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+
+
+    <title>{% block titulo%} {% endblock %}</title>
+</head>
+<body class="bg-dark">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <header class="mb-auto bg-dark text-white">
+                    <div>
+                      <h3 class="float-md-start mb-0">Nicolas Aillapan</h3>
+                      <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-link fw-bold py-1 px-2 text-white" href="{% url 'inicio'%}">INICIO</a>
+                        <a class="nav-link fw-bold py-1 px-2 text-white" href="{% url 'lista_participante'%}">CRUD</a>
+                        <a class="nav-link fw-bold py-1 px-2 text-white" href="{% url 'participante'%}">API</a>
+                        <a class="nav-link fw-bold py-1 px-2 text-white" href="{% url 'inscritos'%}">CBV</a>
+                        <a class="nav-link fw-bold py-1 px-2 text-white" href="{% url 'institucion'%}">FBV</a>
+                      </nav>
+                    </div>
+                  </header> 
+
+                {% block contenido %} {% endblock %}
+
+            </div>
+        </div>
+    </div>
+        <!-- Scrips para sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}  
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    "title": "",
+                    "text": "{{m}}",
+                    "icon" : "success"
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

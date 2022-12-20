@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block contenido %}
+
+  <main class="pt-5 text-white">
+    <h1>Carta</h1>
+    <p class="lead">para el viejito pascuero</p>
+    <p class="lead">
+      <a href="{% url 'carta' %}" class="btn btn-lg btn-secondary fw-bold border-white bg-white text-black">Leer</a>
+    </p>
+  </main>
+
+{% endblock %}

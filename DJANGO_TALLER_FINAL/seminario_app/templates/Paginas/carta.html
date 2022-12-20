@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block titulo %} Carta {% endblock %}
+
+{% block contenido %}
+{% load static %}
+<div class="row pt-5">
+    <div class="col-12">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/viejito-pascuero.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Viejito pascuero me he portado bien todo el año, no vengo a pedir un 7 pero me conformaría con un 69,6. <br> Muchas Gracias.</p>
+              <p class="card-text">Feliz navidad</p>
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endblock %}
+

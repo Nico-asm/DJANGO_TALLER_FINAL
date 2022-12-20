@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block titulo%} Lista de Inscritos {% endblock %}
+
+{% block contenido %}
+
+<div class="card text-bg-light mt-5 ">
+    <div class="card-header">
+        <h2> Todos los participantes inscritos</h2>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            {% if participante %}
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Institución</th>
+                        <th>Fecha de inscripción</th>
+                        <th>Hora de inscripción</th>
+                        <th>Estado</th>
+                        <th>Observación</th>
+                        <th> --- </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for par in participante%}
+                    <tr>
+                        <td>{{par.id}}</td>
+                        <td>{{par.nombre}}</td>
+                        <td>{{par.telefono}}</td>
+                        <td>{{par.institucion}}</td>
+                        <td>{{par.fechaInscripcion.day}}/{{par.fechaInscripcion.month}}/{{par.fechaInscripcion.year}}</td>
+                        <td>{{par.horaInscripcion}}</td>
+                        <td>{{par.estado}}</td>
+                        <td>{{par.observacion}}</td>
+                        <td> 
+                            <a class="btn btn-warning" href="{% url 'editar_participante' par.id %}" role="button"><i class="bi bi-pencil"></i></a>
+                            
+                            <a class="btn btn-danger" href="{% url 'eliminar_participante' par.id %}" role="button"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <div class="alert alert-info">
+                    <p>No hay registros de Participantes</p>
+                </div>
+            {% endif %}
+            <a class="btn btn-dark" href="{% url 'agregar_participante' %}" role="button">Agregar Participante</a>
+        </div>      
+    </div>
+</div>
+
+{% endblock %}

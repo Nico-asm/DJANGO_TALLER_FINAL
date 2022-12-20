@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<div class="card border-dark text-bg-light mt-5">
+  <div class="card-header">
+    <h2>Agregar Participante</h2>
+  </div>
+  <div class="card-body">
+    <form method="POST">
+      <div class="mb-3">
+        <table class="table">
+          {{form}}
+      
+        </table>
+        
+        {% csrf_token %}
+        <input type="submit" value="Agregar" class="btn btn-dark">
+        <a class="btn btn-dark" href="{% url 'lista_participante'%}" role="button">Volver</a>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+{% endblock%}
